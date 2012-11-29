@@ -1,0 +1,5 @@
+[@ui.bambooSection title='Post Build Traffic Light Program']
+    [@ww.textfield name='custom.traflight.post.program.success' label='Success Program' description='Program to set when build finishes successfully' cssClass="long-field" /]
+    [@ww.textfield name='custom.traflight.post.program.fail' label='Fail Program' description='Program to set when build fails' cssClass="long-field" /]
+    [@ww.checkbox name='custom.traflight.post.program.enabled' label='Enabled?' toggle='true' description='Enables/disables traffic light signaling' /]
+[/@ui.bambooSection]

@@ -1,0 +1,26 @@
+<atlassian-plugin key="${project.groupId}.${project.artifactId}" name="${project.name}" plugins-version="2">
+    <plugin-info>
+        <description>${project.description}</description>
+        <version>${project.version}</version>
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    </plugin-info>
+
+    <component key="traflightService" class="com.fvendor.bamboo.traflight.TcpTrafficLightService">
+        <description>Provides TCP server for traffic light.</description>
+        <interface>com.fvendor.bamboo.traflight.TrafficLightService</interface>
+    </component>
+
+    <preBuildAction key="traflightStart" name="Traffic light starter"
+                    class="com.fvendor.bamboo.traflight.PreBuildAction">
+        <description>A custom action that sets starting position for connected traffic light</description>
+        <resource type="freemarker" name="edit" location="templates/preBuildAction/traflightStartEdit.ftl"/>
+        <resource type="freemarker" name="view" location="templates/preBuildAction/traflightStartView.ftl"/>
+    </preBuildAction>
+
+    <postBuildCompletedAction key="traflightFinish" name="Traffic light finisher"
+                    class="com.fvendor.bamboo.traflight.PostBuildCompletedAction">
+        <description>A custom action that sets finish position for connected traffic light</description>
+        <resource type="freemarker" name="edit" location="templates/postBuildAction/traflightFinishEdit.ftl"/>
+        <resource type="freemarker" name="view" location="templates/postBuildAction/traflightFinishView.ftl"/>
+    </postBuildCompletedAction>
+</atlassian-plugin>
